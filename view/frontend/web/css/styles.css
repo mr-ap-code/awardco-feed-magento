@@ -1,0 +1,136 @@
+/* styles.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body .awardco-feed-container {
+    background-color: #66ccff;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.praise-frame-container {
+    height: calc(75vh) ;
+    padding: 12.5vmin;
+}
+
+.recognition {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.praise-author {
+    flex-direction: column;
+    padding-bottom: 0px;
+}
+
+.avatar-container {
+    margin-right: 10px;
+}
+
+.recipient-details {
+    flex-direction: row;
+    -moz-box-align: center;
+    align-items: center;
+    padding-bottom: 0px;
+    height: 150px;
+}
+
+.recognition.active {
+    display: block;
+}
+
+.logo-left {
+    height: 65px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.recognition-container {
+    box-sizing: border-box;
+    padding: 52px;
+    border-radius: 2rem;
+    border: 1px solid rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.15) -24px 24px 250px 0px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.recognition-text {
+    font-style: normal;
+    overflow-wrap: anywhere;
+    font-family: Sora, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: rgb(25, 25, 27);
+    line-height: 0.5;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.recognition-recipient {
+    font-style: normal;
+    overflow-wrap: anywhere;
+    font-family: Sora, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: rgb(25, 25, 27);
+    font-weight: 800;
+    line-height: 0.5;
+    font-size: 55px;
+}
+
+.recognition-body-text {
+    font-style: normal;
+    color: var(--primary_color_1000);
+    font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-wrap: inherit;
+    font-size: 28px;
+}
+
+.recognition-highlight {
+    color: rgb(177, 177, 177);
+}
+
+.common-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+.logo-qr-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-right {
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+}
+
+.fullscreen-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #E9EAEC;
+    display: none;
+}
+
+body.fullscreen .fullscreen-icon {
+    display: block;
+}
+
+body.fullscreen:hover .fullscreen-icon {
+    display: block;
+}

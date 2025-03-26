@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="awardcofeed" translate="label" sortOrder="999">
+            <label>Awardco Feed</label>
+        </tab>
+        <section id="awardcofeed" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Awardco Feed Configuration</label>
+            <tab>awardcofeed</tab>
+            <resource>AwardcoFeed_Module::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="api_key" translate="label" type="obscure" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <comment>API Key for Awardco Feed</comment>
+                </field>
+                <field id="feed_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Feed URL</label>
+                    <comment>URL for the Awardco Feed API</comment>
+                </field>
+                <field id="org_list" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Organization User List</label>
+                    <comment>Comma-separated list of organization users</comment>
+                </field>
+                <field id="domain" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Domain</label>
+                    <comment>Domain for email addresses</comment>
+                </field>
+                <field id="page" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page</label>
+                    <comment>Starting page number</comment>
+                </field>
+                <field id="limit" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Limit</label>
+                    <comment>Number of items per page</comment>
+                </field>
+                <field id="num_pages" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of Pages</label>
+                    <comment>Number of pages to fetch</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

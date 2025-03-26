@@ -1,0 +1,73 @@
+<?php
+/** @var \AwardcoFeed\Module\Block\Feed $block */
+$feed = $block->getFeed() ;
+?>
+<div class="awardco-feed-container common-margin-padding">
+    <div data-test-id="praise-frame-container" class="praise-frame-container">
+    <?php if (empty($feed)): ?>
+        <div>No recognitions found. Please check your configuration.</div>
+    <?php else: ?>
+        <?php foreach ($feed as $index => $item): ?>
+            <div class="recognition" id="recognition-<?= $index; ?>" data-test-id="praise-text-content-area" class="recognition-container">
+                <div>
+                    <div class="praise-author flex-container" data-test-id="praise-author">
+                        <div data-test-id="text-container">
+                            <p data-test-id="text" class="recognition-text"><?= $block->escapeHtml($item['name'] ?? ''); ?> <span class="recognition-highlight">recognized</span></p>
+                        </div>
+                    </div>
+                    <div data-test-id="recipients-element" class="recipient-details flex-container body-content">
+                        <?php if (!empty($item['to'][0]['avatar'])): ?>
+                            <div data-test-id="avatar-container" class="avatar-container flex-container">
+                                <img src="<?= $block->escapeUrl($item['to'][0]['avatar']); ?>" alt="<?= $block->escapeHtml($item['to'][0]['name'] ?? ''); ?>'s avatar" width="100px" height="100px">
+                            </div>
+                        <?php endif; ?>
+                        <div class="flex-container">
+                            <div data-test-id="text-container">
+                                <p data-test-id="text" class="recognition-recipient"><?= $block->escapeHtml($item['to'][0]['name'] ?? ''); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-test-id="smart-text-outer-boundary">
+                        <div data-test-id="smart-text-inner-boundary">
+                            <div data-test-id="text-container">
+                                <p data-test-id="body-text" class="recognition-body-text"><?= $block->escapeHtml($item['text'] ?? ''); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-test-id="logo-qr-container" class="logo-qr-container">
+                        <div data-test-id="logo" class="logo-left common-margin-padding">
+                            <svg width="99" height="70" viewBox="0 0 99 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M64.8288 0.0136719L60.5822 8.09586C59.8973 7.54792 59.0753 6.86299 58.2534 6.31504C43.4589 -3.41099 23.5959 -1.49318 10.9931 10.9726C-3.66438 25.3561 -3.66438 48.7808 10.9931 63.1644C18.2534 70.4246 27.8425 73.9863 37.5685 73.9863C45.7877 73.9863 54.0068 71.3835 60.7192 66.0411L64.8288 73.8493H98.6644L95.3767 67.8219C95.2397 67.5479 86.7466 51.7945 78.6644 37C86.7466 22.0685 95.3767 6.04107 95.3767 6.04107L98.6644 0.0136719L64.8288 0.0136719ZM67.5685 17.6849C67.1575 16.863 66.6096 16.0411 66.0616 15.0822L69.6233 8.50682L84.6918 8.50682C81.952 13.4383 77.8425 20.9726 73.7329 28.5068C71.2671 24.2602 69.2123 20.5616 67.5685 17.6849ZM17.0205 57.137C5.65068 46.0411 5.65068 27.9589 17.0205 16.863C22.637 11.3835 30.1712 8.50682 37.7055 8.50682C43.1849 8.50682 48.8014 10.0137 53.5959 13.1644C57.2945 15.7671 59.0753 18.5068 60.7192 21.3835C66.6096 31.7945 78.8014 54.5342 84.6918 65.3561H69.8973L51.2671 30.4246C51.2671 30.4246 51.2671 30.4246 51.2671 30.2876C48.8014 25.3561 43.5959 21.9315 37.7055 21.9315C29.3493 21.9315 22.5 28.6438 22.5 36.863C22.5 45.0822 29.3493 51.7945 37.7055 51.7945C42.774 51.7945 47.2945 49.3287 50.0342 45.4931L56.8836 58.3698C51.4041 63.1644 44.5548 65.4931 37.7055 65.4931C30.1712 65.4931 22.774 62.7534 17.0205 57.137Z" fill="#1FC4F4"/>
+                            </svg>
+                        </div>
+                        <div class="logo-right">
+                            <svg aria-hidden="true" role="img" viewBox="0 0 30 26" fill="#FA0F00" aria-label="Adobe" style="width: 99px; height:70px">
+                                <polygon points="19,0 30,0 30,26"></polygon>
+                                <polygon points="11.1,0 0,0 0,26"></polygon>
+                                <polygon points="15,9.6 22.1,26 17.5,26 15.4,20.8 10.2,20.8"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    </div>
+    <iframe style="border: medium; width: 100vw; height: 100vh;" class="webview common-margin-padding" scrolling="no" allow="autoplay; encrypted-media; fullscreen;"></iframe>
+    <div class="fullscreen-icon" onclick="toggleFullscreen() ">
+        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3H10V5H5V10H3V3Z" fill="currentColor"/>
+            <path d="M21 3H14V5H19V10H21V3Z" fill="currentColor"/>
+            <path d="M21 21H14V19H19V14H21V21Z" fill="currentColor"/>
+            <path d="M3 21H10V19H5V14H3V21Z" fill="currentColor"/>
+        </svg>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "AwardcoFeed_Module/js/script": {}
+    }
+}
+</script>

@@ -1,0 +1,78 @@
+# Awardco Feed Module for Magento 2
+
+This module integrates the Awardco recognition feed into Magento 2 stores. It displays a rotating carousel of recognitions fetched from the Awardco API, filtered by organization users.
+
+## Features
+
+- Fetches recognition data from Awardco API
+- Filters recognitions by organization users
+- Displays recognitions in a rotating carousel
+- Supports fullscreen mode
+- Configurable through Magento admin panel
+
+## Installation
+
+### Via Composer
+
+```bash
+composer require awardcofeed/module
+bin/magento module:enable AwardcoFeed_Module
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+bin/magento setup:static-content:deploy -f
+bin/magento cache:clean
+```
+
+### Manual Installation
+
+1. Create the directory `app/code/AwardcoFeed/Module` in your Magento installation
+2. Copy all module files to this directory
+3. Enable the module and update the database:
+   ```bash
+   bin/magento module:enable AwardcoFeed_Module
+   bin/magento setup:upgrade
+   bin/magento setup:di:compile
+   bin/magento setup:static-content:deploy -f
+   bin/magento cache:clean
+   ```
+
+## Configuration
+
+1. Log in to your Magento Admin Panel
+2. Navigate to **Stores** > **Configuration**
+3. In the left sidebar, find and click on **Awardco Feed Configuration**
+4. Configure the following settings:
+
+### API Configuration
+- **API Key**: Your Awardco API authentication key
+- **Feed URL**: The endpoint URL for the Awardco Feed API
+
+### User Configuration
+- **Organization User List**: Comma-separated list of organization users
+- **Domain**: Domain for email addresses
+
+### Feed Parameters
+- **Page**: Starting page number
+- **Limit**: Number of items per page
+- **Number of Pages**: Total number of pages to fetch
+
+## Usage
+
+After installation and configuration, the feed will be available at:
+`https://<your-magento-domain>/awardcofeed`
+
+You can also create custom links to this page from your Magento store navigation or content pages.
+
+## Requirements
+
+- Magento 2.4.x
+- PHP 7.4 or higher
+- Curl PHP extension
+
+## Support
+
+For issues, questions, or contributions, please open an issue in this repository.
+
+## License
+
+[OSL-3.0](https://opensource.org/licenses/OSL-3.0)
