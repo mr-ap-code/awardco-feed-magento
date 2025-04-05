@@ -40,6 +40,15 @@ class Feed extends Template
         $limit = (int)$this->getConfigValue('awardcofeed/general/limit');
         $numPages = (int)$this->getConfigValue('awardcofeed/general/num_pages');
 
+        // Log the values for debugging
+        $this->_logger->info('API Key: ' . $apiKey);
+        $this->_logger->info('Feed URL: ' . $feedUrl);
+        $this->_logger->info('Org List: ' . implode(',', $orguserList));
+        $this->_logger->info('Domain: ' . $domain);
+        $this->_logger->info('Page: ' . $page);
+        $this->_logger->info('Limit: ' . $limit);
+        $this->_logger->info('Num Pages: ' . $numPages);
+
         $feed = [];
         $multiHandle = curl_multi_init();
         $curlHandles = [];
